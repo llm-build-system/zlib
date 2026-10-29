@@ -1,0 +1,17 @@
+type = "static-library"
+name = "z"
+standards = ["C11"]
+
+[defines]
+private = ["ZLIB_BUILD"]
+
+[windows.defines]
+private = ["NO_FSEEKO", "_CRT_SECURE_NO_WARNINGS", "_CRT_NONSTDC_NO_DEPRECATE"]
+
+[linux.defines]
+public = ["Z_HAVE_UNISTD_H=1", "_LARGEFILE64_SOURCE=1"]
+private = ["HAVE_HIDDEN=1"]
+
+[macos.defines]
+public = ["Z_HAVE_UNISTD_H=1"]
+private = ["HAVE_HIDDEN=1"]
